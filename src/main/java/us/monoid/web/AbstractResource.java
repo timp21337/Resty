@@ -56,8 +56,8 @@ public abstract class AbstractResource extends Resty {
 				// close the errorstream
 				es.close();
 
-				throw new IOException("Error while reading from " + conn.getRequestMethod() + ": [" + conn.getResponseCode() + "] "
-						+ conn.getResponseMessage() + "\n" + new String(baos.toByteArray(), "UTF-8"), e);
+				throw new HttpIOException(conn.getRequestMethod(), conn.getResponseCode(), conn.getResponseMessage(),
+            new String(baos.toByteArray(), "UTF-8"), e);
 			} else {
 				throw e;
 			}
