@@ -43,5 +43,13 @@ public class HttpIOException extends IOException {
         + getContent();
   }
 
-
+  @Override
+  public String toString() {
+    return "HttpIOException{" +
+        "requestMethod='" + requestMethod + '\'' +
+        ", responseCode=" + responseCode +
+        ", responseMessage='" + responseMessage + '\'' +
+        ", content='" + content + '\'' +
+        '}';
+  }
 }
