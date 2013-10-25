@@ -1,0 +1,15 @@
+mvn -e clean 
+#mvn -e install 
+
+mvn -e deploy \
+  -DaltDeploymentRepository=aristaeus.libs.release.local::default::http://aristaeus.mediagraft.com:8080/libs-release-local 
+
+
+#mvn -e deploy:deploy-file \
+#  -DrepositoryId=aristaeus.ext.snapshot.local \
+#  -Durl=http://aristaeus.mediagraft.com:8080/ext-snapshot-local \
+#  -Dclassifier=we7 \
+#   -Dfile=target/resty-0.3.3-SNAPSHOT.jar \
+#   -DpomFile=pom.xml 
+
+#cp target/resty-0.3.3-SNAPSHOT.jar ~/checkout/mediagraft/lib/retrieved/test/
