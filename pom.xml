@@ -7,7 +7,7 @@
   <version>0.3.3-FUTURE</version>
   <name>Resty</name>
   <description>Simple Java client to talk to RESTful backends</description>
-  <url>http://github.com/timp21337/resty</url>
+  <url>http://github.com/we7/Resty</url>
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
@@ -21,9 +21,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git@github.com:beders/Resty.git</connection>
-    <developerConnection>scm:git:git@github.com:beders/Resty.git</developerConnection>
-    <url>git@github.com:beders/Resty.git</url>
+    <connection>scm:git:git@github.com:we7/Resty.git</connection>
+    <developerConnection>scm:git:git@github.com:we7/Resty.git</developerConnection>
+    <url>git@github.com:we7/Resty.git</url>
   </scm>
   <build>
     <plugins>
@@ -79,7 +79,7 @@
         <inherited>true</inherited>
         <configuration>
           <classifier>we7</classifier>
-	</configuration>
+	      </configuration>
       </plugin>
     </plugins>
   </build>
