@@ -11,7 +11,7 @@ import us.monoid.web.jp.javacc.ParseException;
 
 
 
-/** Create a path query for a JSON object. Usualy this is done by calling Resty.path(...)
+/** Create a path query for a JSON object. Usually this is done by calling Resty.path(...)
  * 
  * A JSONPathQuery is similar to JsonPath or XPath in that you can create access paths into an JSON object.
  * It uses dot '.' as a path separator and [] to access arrays. 
@@ -37,7 +37,7 @@ public class JSONPathQuery extends PathQuery<JSONResource, Object> {
 	
 	@Override
 	Object eval(JSONResource resource) throws JSONException, ParseException, IOException {
-		JSONObject json = resource.object();
+		Object json = resource.raw();
 		log.fine("JSON Received:" + json);
 		Object result = getCompiler().json().eval(json);
 		return result;
