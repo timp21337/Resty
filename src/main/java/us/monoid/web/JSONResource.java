@@ -35,7 +35,7 @@ public class JSONResource extends AbstractResource {
 	}
 
 	/** 
-	 * Parse and return JSON object. Parsing is done only once after which the inputStrem is at EOF.
+	 * Parse and return JSON object. Parsing is done only once after which the inputStream is at EOF.
 	 * @return the JSON object
 	 * @throws IOException
 	 * @throws JSONException
@@ -54,8 +54,19 @@ public class JSONResource extends AbstractResource {
 	public JSONObject toObject() throws IOException, JSONException {
 		return object();
 	}
-	
-	/** Transforming the JSON on the fly */
+
+  /**
+   * Parse and return the raw JSON object or array. Parsing is done only once after which the inputStream is at EOF.
+   * @return the JSON object
+   * @throws IOException
+   * @throws JSONException
+   */
+  public Object raw() throws IOException, JSONException {
+    if (json == null) unmarshal();
+    return json;
+  }
+
+  /** Transforming the JSON on the fly */
 	protected Object unmarshal() throws IOException, JSONException {
 		json = new JSONTokener(new InputStreamReader(inputStream, "UTF-8")).nextValue();
 		inputStream.close();
@@ -86,7 +97,7 @@ public class JSONResource extends AbstractResource {
 		return json(jsonValue.toString(), content);
 	}
 
-	/** Execute the given path query on the json and use the returned string as an URI expecting text/*
+	/** Execute the given path query on the json and use the returned string as an URI expecting text
 	 * 
 	 * @param path path to the URI to follow
 	 * @return a new resource, as a result of getting it from the server in text/plain format
@@ -98,7 +109,7 @@ public class JSONResource extends AbstractResource {
 		return text(URI.create(jsonValue.toString()));
 	}
 
-	/** Execute the given path query on the json and GET the returned URI expecting text/*
+	/** Execute the given path query on the json and GET the returned URI expecting text
 	 * 
 	 * @param path path to the URI to follow
 	 * @return a new resource, as a result of getting it from the server in JSON format
@@ -109,7 +120,7 @@ public class JSONResource extends AbstractResource {
 		return xml(jsonValue.toString());
 	}
 	
-	/** Execute the given path query on the json and POST to the returned URI expecting text/*
+	/** Execute the given path query on the json and POST to the returned URI expecting text
 	 * 
 	 * @param path path to the URI to follow
 	 * @return a new resource, as a result of getting it from the server in JSON format
