@@ -4,7 +4,7 @@
   <groupId>us.monoid.web</groupId>
   <artifactId>resty</artifactId>
   <packaging>jar</packaging>
-  <version>0.3.3-FUTURE</version>
+  <version>0.3.3-FUTURE-3</version>
   <name>Resty</name>
   <description>Simple Java client to talk to RESTful backends</description>
   <url>http://github.com/we7/Resty</url>
