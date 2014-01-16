@@ -50,15 +50,15 @@ public abstract class AbstractResource extends Resty {
 						baos.write(buf, 0, read);
 					}
 				} catch (IOException e1) {
-					log.warning("IOException when reading the error stream. Igored");
+					log.warning("IOException when reading the error stream. Ignored");
 				}
 
 				// close the errorstream
 				es.close();
 
-				throw new HttpIOException(conn.getRequestMethod(), conn.getResponseCode(), conn.getResponseMessage(),
-            new String(baos.toByteArray(), "UTF-8"), e);
-			} else {
+        inputStream = new ByteArrayInputStream(baos.toByteArray());
+
+      } else {
 				throw e;
 			}
 		}
