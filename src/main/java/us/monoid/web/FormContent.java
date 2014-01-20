@@ -9,10 +9,11 @@ import java.io.UnsupportedEncodingException;
  *
  */
 public class FormContent extends Content {
+	protected String rawQuery;
 
 	public FormContent(String query) {
 		super("application/x-www-form-urlencoded", getBytes(query)); // strictly speaking US ASCII should be used
-
+    rawQuery = query;
   }
 	
 	private static byte[] getBytes(String query) {
@@ -23,4 +24,8 @@ public class FormContent extends Content {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return rawQuery;
+	}
 }
